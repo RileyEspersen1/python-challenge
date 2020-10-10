@@ -1,0 +1,7 @@
+Financial Analysis 
+-------------------- 
+Number of Months: 86
+Total: $38382578
+The average = $-2315.12
+Greatest Inc: Feb-2012 1170593
+Greatest Dec: Sep-2013 -1196225
