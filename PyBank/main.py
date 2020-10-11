@@ -72,6 +72,7 @@ with open(budget_csv, 'r') as csvfile:
     print("Greatest Inc: ", indexVal ,mostIncVal)
     print("Greatest Dec: ", indexVal2, mostDecVal)      
     
+#print to txt file 
 with open("Analysis/analysis.txt" , "w") as txt_file:
     txt_file.write("Financial Analysis \n")
     txt_file.write("-------------------- \n")

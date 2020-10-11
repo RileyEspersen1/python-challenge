@@ -1,7 +1,7 @@
 import os
 import csv
 
-voting_csv = os.path.join('Resources', 'election_smaller_data.csv')
+voting_csv = os.path.join('Resources', 'election_data.csv')
 
 with open(voting_csv, 'r') as csvfile:
 
@@ -100,6 +100,7 @@ with open("Analysis/poll_results.txt" , "w") as txt_file:
     txt_file.write(uniqueCandidateList[1] + ": " + str(round(correyPercentVote, 2))+ "% ("+ str(correyTotal)+ ") \n")
     txt_file.write(uniqueCandidateList[2] + ": " + str(round(liPercentVote, 2))+ "% ("+ str(liTotal)+ ") \n")
     txt_file.write(uniqueCandidateList[3] + ": " + str(round(oTooleyPercentVote, 2))+ "% ("+ str(oTooleyTotal)+ ") \n")
-
-    
+    txt_file.write("------------------------------ \n") 
+    txt_file.write("Winner: " + winner + "!!! \n")
+    txt_file.write("------------------------------ \n") 
   
