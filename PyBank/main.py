@@ -26,12 +26,12 @@ with open(budget_csv, 'r') as csvfile:
 
     for row in csvreader:
 
-        profitLoss = 0
-
         #adding the profitloss column
         totalProfitLoss += int(row[1])
-        #adding the amount of months
+
+        #adding the amount of months        
         numberOfMonths += 1
+
         #greatest inc and dec
         dateTrack.append(row[0])
         greatestInc.append(int(row[1]))
@@ -40,12 +40,7 @@ with open(budget_csv, 'r') as csvfile:
         #Average Change
         counter = counter + 1 
         avgChange.append(int(row[1]))
-
-        if counter == 0:
-           profitLoss = 0
-        else: 
-           change = int(row[1]) - profitLoss
-        
+    
     #getting the change
     for i in range(len(avgChange) - 1):
         finalList.append(avgChange[i + 1]- avgChange[i])
@@ -53,12 +48,14 @@ with open(budget_csv, 'r') as csvfile:
     mostIncVal = 0
     mostDecVal = 0 
 
+    #greatestInc Calculation + print date
     for i in range(len(greatestInc) - 1):
         if(greatestInc[i] > mostIncVal):
             mostIncVal = greatestInc[i]
             for j in range(len(dateTrack) - 1):
                 indexVal = dateTrack[i]
 
+    #greatestDec Calculation + print date
     for x in range(len(greatestDec) - 1):
         if(greatestDec[x] < mostDecVal):
             mostDecVal = greatestDec[x]
