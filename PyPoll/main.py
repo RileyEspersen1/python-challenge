@@ -19,13 +19,17 @@ with open(voting_csv, 'r') as csvfile:
         #total vote count
         totalVotes += 1      
         
+        #lists
         candidateList.append(row[2])
         voterIDlist.append(row[0])
+        
+        #setting point totals
         khanTotal = 0
         correyTotal = 0
         liTotal = 0
         oTooleyTotal = 0
 
+    #getting unique values in the full candidates List
     for i in range(len(candidateList) - 1):
       
         if(candidateList[i] in uniqueCandidateList):
@@ -33,7 +37,7 @@ with open(voting_csv, 'r') as csvfile:
         else:
             uniqueCandidateList.append(candidateList[i])
 
-        
+    #counting Total votes    
     for i in range(len(voterIDlist) - 1):
         if(candidateList[i] == "Khan"):
                 khanTotal += 1
@@ -73,23 +77,23 @@ with open(voting_csv, 'r') as csvfile:
     print("Li's Total: " + str(liTotal))
     print("o'Tooley's Total: " + str(oTooleyTotal))
 
-    #done print statements
+    #Total Votes
     print("Total Votes: " + str(totalVotes))
     
+    #creating dictionary using unique candidates and their vote Totals
     mydict = {str(uniqueCandidateList[0]): khanTotal, str(uniqueCandidateList[1]): correyTotal,
     str(uniqueCandidateList[2]) : liTotal, str(uniqueCandidateList[3]) : oTooleyTotal
     }
 
+    #finding the person with the most amount of votes
     winner = max(mydict, key= mydict.get)
     
     print("-----------")
     print("This is the winner: " +  winner )
-
     print("-----------") 
     print("Created Dictionary with values")   
     print(mydict)
     print("-----------")
-
 
 with open("Analysis/poll_results.txt" , "w") as txt_file:
     txt_file.write("Election Results \n")    
